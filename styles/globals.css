@@ -10,3 +10,45 @@ body{
 .ant-tabs-tab-active{
     color: black!important;
 }
+
+
+/*antd */
+
+
+/* apex charts */
+
+.apexcharts-tooltip span {
+    color: black;
+}
+
+/* apex charts */
+
+table {
+    width: 100%;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    border-collapse: collapse;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    border-style: hidden;
+  }
+  table,
+  tr,
+  td,
+  th {
+    text-align: left;
+    padding: 10px;
+  }
+  tr {
+    border-top: solid 1px rgba(0, 0, 0, 0.2);
+  }
+  th {
+    font-weight: normal;
+    text-transform: uppercase;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  }
+  th {
+    font-size: 13px;
+  }
+  td {
+    font-size: 14px;
+  }

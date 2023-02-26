@@ -4,22 +4,24 @@ import dynamic from "next/dynamic";
 import { Fragment } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
-const ReactApexChart = dynamic(() => import("react-apexcharts"),{ssr:false});
+const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const Home: NextPage = () => {
   const series = [
     {
       name: "Desktops",
-      data: [10,20,30,40],
+      data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
     },
   ];
+
   const options: any = {
     chart: {
-      type: "area",
+      toolbar: false,
+      height: 350,
+      type: "line",
       zoom: {
         enabled: false,
       },
-      toolbar: false,
     },
     dataLabels: {
       enabled: false,
@@ -28,67 +30,70 @@ const Home: NextPage = () => {
       curve: "straight",
     },
     title: {
-      text: "Weekly Asset Growth Chart",
+      text: "Product Trends by Month",
       align: "left",
+      foreColor:"black"
     },
     xaxis: {
-      categories: ["Feb 20","Feb 19","Feb 18","Feb 17"],
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
     },
   };
 
-  const dataSource = [
-    {
-      key: "1",
-      name: "Coinbase IPO",
-      age: '$20',
-      count:200,
-      address: "$4000",
-    },
-    {
-      key: "1",
-      name: "Apex Stock LLC",
-      age: '$23',
-      count:200,
-      address: "$4600",
-    },
-  ];
-
-  const columns = [
-    {
-      title: "Asset Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "PPT",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
-      title: "Count",
-      dataIndex: "count",
-      key: "count",
-    },
-    {
-      title: "Total Value",
-      dataIndex: "address",
-      key: "address",
-    },
-  ];
-
   return (
     <Fragment>
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl px-3">
         <section className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg p-5 mb-5 shadow">
           <p className="text-lg font-bold mb-3">$50,050</p>
-          <p className="flex items-center text-red-100"><IoMdArrowDropdown size={17}/> 10 % down this week </p>
+          <p className="flex items-center text-red-100">
+            <IoMdArrowDropdown size={17} /> 10 % down this week{" "}
+          </p>
         </section>
 
         <ReactApexChart options={options} series={series} height="300" width="100%" />
 
-        <Table bordered dataSource={dataSource} columns={columns} pagination={false} />
+        <table className="shadow-none border-2 border-red-500">
+          <thead>
+            <tr>
+              <th>Asset Name</th>
+              <th>PPT</th>
+              <th>Quantity</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TLDR IPO</td>
+              <td>$340</td>
+              <td>430.409</td>
+              <td>$24,509</td>
+            </tr>
+            <tr>
+              <td>TLDR IPO</td>
+              <td>$340</td>
+              <td>430.409</td>
+              <td>$24,509</td>
+            </tr>
+            <tr>
+              <td>TLDR IPO</td>
+              <td>$340</td>
+              <td>430.409</td>
+              <td>$24,509</td>
+            </tr>
+            <tr>
+              <td>TLDR IPO</td>
+              <td>$340</td>
+              <td>430.409</td>
+              <td>$24,509</td>
+            </tr>
+            <tr>
+              <td>TLDR IPO</td>
+              <td>$340</td>
+              <td>430.409</td>
+              <td>$24,509</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
     </Fragment>
   );
 };
